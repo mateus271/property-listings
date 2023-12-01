@@ -1,5 +1,5 @@
-# Front-end Assessment
-My assessment as a mid-level front-end developer.
+# Property Listings Project
+A simple Angular application for accessing a .json, displaying the info and allowing the user to interact with it.
 
 ## Instructions for running the project
 
