@@ -23,3 +23,12 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .saved-properties-container {
+        .saved-property-card {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

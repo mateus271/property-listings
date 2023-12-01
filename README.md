@@ -1,5 +1,5 @@
 # Front-end Assessment
-My assessment as a mid-level front-end developer for Number8.
+My assessment as a mid-level front-end developer.
 
 ## Instructions for running the project
 

@@ -12,6 +12,7 @@ export class ModalService {
     public async showSavedPropertiesModal(): Promise<void> {
         this.dialog.open(SavedPropertiesModalComponent, {
             panelClass: 'saved-properties-modal',
+            height: '80vh'
         });
     }
 }
