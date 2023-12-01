@@ -1,0 +1,188 @@
+.content {
+    display: grid;
+    grid-template-columns: 63% 33%;
+    padding: 40px 140px;
+    gap: 55px;
+
+    p {
+        margin: 5px 0;
+    }
+    
+    .button {
+        font-size: 20px;
+        color: white;
+        background-color: #6dadf7;
+        padding: 10px 20px;
+        border: 1px solid #7a8795;
+        text-align: center;
+    }
+
+    .property-details-content {
+        .nav-button {
+            margin-left: -10px;
+
+            .material-icons {
+                font-size: 40px;
+            } 
+        }
+
+        .property-details-header {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 10px;
+
+            .property-title-and-location {
+                .property-title {
+                    font-size: 28px;
+                    font-weight: bold;
+                    text-transform: lowercase;
+                }
+
+                .property-title::first-letter {
+                    text-transform: capitalize;
+                }
+
+                .property-location {
+                    font-size: 18px;
+                }
+            }
+
+            .property-price-and-listed-date {
+                text-align: end;
+
+                .property-price {
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+
+                .property-listed-date {
+                    font-size: 18px;
+                    color: #9b9a9a;
+                }
+            }
+        }
+
+        .property-picture {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+        }
+
+        .property-particulars {
+            display: flex;
+            margin: 15px 0;
+            border: 1px solid;
+            padding: 15px 20px;
+            justify-content: space-between;
+
+            .particular-container {
+                text-align: center;
+
+                .particular-detail {
+                    font-size: 30px;
+                }
+
+                .particular-title {
+                    color: #a2a1a1;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .property-description {
+            margin: 20px 0;
+
+            .property-description-text {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .property-options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .button:first-of-type {
+            align-self: end;
+        }
+
+        .button.submit-button {
+            align-self: center;
+        }
+
+        .contact-agent-form {
+            display: flex;
+            flex-direction: column;
+            background-color: #e8e8e8;
+            border: 1px solid #bcbcbc;
+            padding: 30px 30px 40px;
+            min-height: 668px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 29px;
+
+                .contact-form-title {
+                    font-size: 30px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                .input-container {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    input,
+                    textarea {
+                        border: 1px solid #bcbcbc;
+                        padding: 10px;
+                        font-size: 18px;
+                    }
+        
+                    input::placeholder,
+                    textarea::placeholder {
+                        color: #9b9a9a;
+                    }
+        
+                    textarea {
+                        margin-bottom: 25px;
+                    }
+                }
+                
+            }
+
+            .success-message {
+                background: #51d442;
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+            }
+
+            .error-message {
+                background: #e5494f;
+                padding: 15px;
+                color: white;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .property-details-content {
+            .property-particulars {
+                display: grid;
+                grid-template-columns: repeat(3, 33%);
+            }
+        }
+    }
+}

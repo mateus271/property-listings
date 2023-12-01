@@ -1,0 +1,81 @@
+<div class="content" role="main">
+  <div class="mobile-button" (click)="showSideBar()">
+    <mat-icon>menu</mat-icon>
+  </div>
+
+  <div class="filter-bar">
+    <div class="mobile-button inside-filter-button" (click)="showSideBar()">
+      <i class="material-icons">close</i>
+    </div>
+    <div class="bedrooms-filter filter">
+      <p>Bedrooms:</p>
+      <mat-form-field class="form-field" subscriptSizing="dynamic">
+        <mat-select [(value)]="selectedBedrooms">
+          <mat-option [value]="0">None</mat-option>
+          <mat-option *ngFor="let bedrooms of propertiesBedroomsArray" [value]="bedrooms">
+            {{ bedrooms }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="bathrooms-filter filter">
+      <p>Bathrooms:</p>
+      <mat-form-field class="form-field" subscriptSizing="dynamic">
+        <mat-select [(value)]="selectedBathrooms">
+          <mat-option [value]="0">None</mat-option>
+          <mat-option *ngFor="let bathrooms of propertiesBathroomsArray" [value]="bathrooms">
+            {{ bathrooms }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="parking-filter filter">
+      <p>Parking:</p>
+      <mat-form-field class="form-field" subscriptSizing="dynamic">
+        <mat-select [(value)]="selectedParkingSpaces">
+          <mat-option [value]="0">None</mat-option>
+          <mat-option *ngFor="let parkingSpaces of propertiesParkingSpacesArray" [value]="parkingSpaces">
+            {{ parkingSpaces }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="price-range filter">
+      <p>Price Range:</p>
+      <mat-slider [min]="minPriceRange" [max]="maxPriceRange" step="1000" discrete>
+        <input matSliderStartThumb [(ngModel)]="selectedMinPriceRange" [value]="minPriceRange">
+        <input matSliderEndThumb [(ngModel)]="selectedMaxPriceRange" [value]="maxPriceRange">
+      </mat-slider>
+    </div>
+
+    <button class="button" (click)="filterProperties()">Search</button>
+
+    <button class="button" (click)="clearFilters()">Remove filters</button>
+  </div>
+
+  <div class="listings-content">
+    <div class="filtered-properties-found" *ngIf="filteredPropertiesArray.length > 0">
+      <div class="listing-card" *ngFor="let property of filteredPropertiesArray">
+        <img class="listing-card-img" [src]="property.PictureURL" alt="Property image">
+        <div class="listing-card-texts">
+          <p class="listing-card-property-title">{{ property.Title }}</p>
+          <p class="listing-card-property-location">{{ property.Location }}</p>
+          <div class="listing-card-bath-and-bedrooms-container">
+            <p class="listing-card-property-bathrooms"><span>{{ property.Bedrooms }}</span> Beds</p>
+            |
+            <p class="listing-card-property-bedrooms"><span>{{ property.Bathrooms }}</span> Baths</p>
+          </div>
+          <p class="listing-card-property-price">{{ property.SalePrice | currency: 'USD'  }}</p>
+          <button class="listing-card-button" (click)="viewPropertyDetails(property.Id)">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-filtered-properties-found" *ngIf="filteredPropertiesArray.length === 0">
+      <p>There are no listings matching your criteria</p>
+    </div>
+  </div>
+</div>

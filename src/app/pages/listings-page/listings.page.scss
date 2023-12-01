@@ -1,0 +1,193 @@
+.content {
+    .mobile-button {
+        display: none;
+    }
+
+    .filter-bar {
+        display: flex;
+        padding: 30px 160px;
+        gap: 50px;
+
+        .filter {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .form-field {
+                width: 150px;
+            }
+        }
+
+        .button {
+            font-size: 20px;
+            color: white;
+            background-color: #6dadf7;
+            padding: 10px 20px;
+            border: 1px solid #7a8795;
+            text-align: center;
+            width: 170px;
+        }
+    }
+
+    .listings-content {
+        padding: 30px 160px;
+
+        .filtered-properties-found {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+
+            .listing-card {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid;
+                border-radius: 5px;
+    
+                .listing-card-img {
+                    width: 100%;
+                }
+                
+                .listing-card-texts {
+                    padding: 5px 15px 15px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+    
+                    p {
+                        margin: 5px 0;
+                    }
+    
+                    .listing-card-property-title {
+                        border-radius: 5px 5px 0 0;
+                        font-size: 25px;
+                        height: 56px;
+                        font-weight: bold;
+                        text-transform: lowercase;
+                    }
+    
+                    .listing-card-property-title::first-letter {
+                        text-transform: capitalize;
+                    }
+    
+                    .listing-card-property-location {
+                        font-size: 20px;
+                        color: #707070;
+                    }
+    
+                    .listing-card-bath-and-bedrooms-container {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 5px;
+                        color: #a7a6a6;
+    
+                        p {
+                            font-size: 15px;
+                        }
+                    }
+    
+                    .listing-card-property-price {
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+    
+                    .listing-card-button {
+                        font-size: 20px;
+                        color: white;
+                        background-color: #6dadf7;
+                        padding: 10px 20px;
+                        border: 1px solid #7a8795;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .no-filtered-properties-found {
+            display: flex;
+            justify-content: center;
+            margin-top: 90px;
+            
+            p {
+                font-size: 30px;
+                background: #e5494f;
+                padding: 25px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+
+        .mobile-button {
+            display: block;
+            padding: 20px;
+            height: 30px;
+
+            mat-icon {
+                font-size: 30px;
+            }
+        }
+
+        .inside-filter-button {
+            padding: 0;
+            align-self: flex-end;
+
+            .material-icons {
+                font-size: 35px;    
+            }
+        }
+
+        .filter-bar {
+            padding: 20px;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            
+            .filter {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        .filter-bar.show {
+            left: 0;
+        }
+
+        .listings-content {
+            padding: 40px 30px;
+            width: calc(100% - 60px);
+
+            .filtered-properties-found {
+                display: flex;
+                flex-direction: column;
+
+                .listing-card {
+                    .listing-card-texts {
+                        .listing-card-property-title {
+                            height: auto;
+                        }
+                    }
+                }
+            }
+
+            .no-filtered-properties-found {
+                p{}
+            }
+        }
+    }
+}

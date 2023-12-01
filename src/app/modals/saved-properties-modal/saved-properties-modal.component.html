@@ -1,0 +1,22 @@
+<div class="saved-properties-container">
+    <div class="saved-property-card" *ngFor="let property of savedProperties">
+        <img [src]="property.ThumbnailURL" alt="">
+        <p>{{ property.Title }}</p>
+        <div class="property-detail">
+            <p class="property-detail-text">{{ property.Bedrooms }}</p>
+            <p class="property-detail-title">Bedrooms</p>
+        </div>
+        <div class="property-detail">
+            <p class="property-detail-text">{{ property.Bathrooms }}</p>
+            <p class="property-detail-title">Bathrooms</p>
+        </div>
+        <div class="property-detail">
+            <p class="property-detail-text">{{ property.Parking }}</p>
+            <p class="property-detail-title">Parking Spaces</p>
+        </div>
+        <div class="property-detail">
+            <p class="property-detail-text">{{ property.SalePrice | currency: 'USD' }}</p>
+            <p class="property-detail-title">Price</p>
+        </div>
+    </div>
+</div>

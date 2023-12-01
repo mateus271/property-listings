@@ -1,0 +1,25 @@
+.saved-properties-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    p {
+        margin: 5px 0;
+    }
+
+    .saved-property-card {
+        display: grid;
+        grid-template-columns: 18% 30% 10% 10% 10% 11%;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+
+        .property-detail {
+
+            .property-detail-title {
+                color: #a2a1a1;
+            }
+        }
+    }
+}

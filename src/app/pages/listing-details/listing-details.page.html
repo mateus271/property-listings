@@ -1,0 +1,101 @@
+<div class="content" role="main">
+  <div class="property-details-content">
+    <div class="nav-button" (click)="goBack()">
+      <i class="material-icons">chevron_left</i>  
+    </div>
+    <div class="property-details-header">
+      <div class="property-title-and-location">
+        <p class="property-title">{{ property.Title }}</p>
+        <p class="property-location">{{ property.Location }}</p>
+      </div>
+      <div class="property-price-and-listed-date">
+        <p class="property-price">{{ property.SalePrice | currency: 'USD' }}</p>
+        <p class="property-listed-date">Date Listed: {{ property.DateListed | date:'MMM dd, yyyy' }}</p>
+      </div>
+    </div>
+    <img class="property-picture" [src]="property.PictureURL" alt="Property picture">
+    <div class="property-particulars">
+      <div class="particular-container">
+        <p class="particular-detail">{{ property.Bedrooms }}</p>
+        <p class="particular-title">BED</p>
+      </div>
+      <div class="particular-container">
+        <p class="particular-detail">{{ property.Bathrooms }}</p>
+        <p class="particular-title">BATH</p>
+      </div>
+      <div class="particular-container">
+        <p class="particular-detail">{{ property.Parking }}</p>
+        <p class="particular-title">PARKING</p>
+      </div>
+      <div class="particular-container">
+        <p class="particular-detail">{{ property.Sqft }}</p>
+        <p class="particular-title">SQFT</p>
+      </div>
+      <div class="particular-container">
+        <p class="particular-detail">{{ property.YearBuilt }}</p>
+        <p class="particular-title">YEAR BUILT</p>
+      </div>
+    </div>
+    <div class="property-description">
+      <p class="property-description-text">{{ property.Description }}</p>
+    </div>
+  </div>
+
+  <div class="property-options-container">
+    <button class="button" (click)="saveProperty()">
+      <div *ngIf="!isPropertySaved">
+        <img src="../../../assets/icons/heart-regular.svg" alt=""> 
+        Save Property
+      </div>
+      <div *ngIf="isPropertySaved">
+        <img src="../../../assets/icons/heart-solid.svg" alt="">
+        Property Saved
+      </div>
+    </button>
+    <div class="contact-agent-form">
+      <form [formGroup]="contactAgent">
+        <p class="contact-form-title" >Contact Agent</p>
+
+        <div *ngIf="isFormValid" class="success-message">
+          Message sent successfully.
+        </div>
+
+        <div class="input-container">
+          <input type="text" formControlName="name" placeholder="Full Name *">
+          <div *ngIf="contactAgent.get('name')!.hasError('required') && contactAgent.get('name')!.touched" class="error-message">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="input-container">
+          <input type="email" formControlName="email" placeholder="Email *">
+          <div *ngIf="contactAgent.get('email')!.hasError('required') && contactAgent.get('email')!.touched" class="error-message">
+            Email is required.
+          </div>
+          <div *ngIf="contactAgent.get('email')!.hasError('pattern') && contactAgent.get('email')!.touched" class="error-message">
+            Invalid email format.
+          </div>
+        </div>
+
+        <div class="input-container">
+          <input type="number" formControlName="phone"  placeholder="Phone Number *">
+          <div *ngIf="contactAgent.get('phone')!.hasError('required') && contactAgent.get('phone')!.touched" class="error-message">
+            Phone is required.
+          </div>
+          <div *ngIf="contactAgent.get('phone')!.hasError('pattern') && contactAgent.get('phone')!.touched" class="error-message">
+            Phone should only contain numbers.
+          </div>
+        </div>
+
+        <div class="input-container">
+          <textarea name="" id="" cols="30" rows="10" formControlName="comments" placeholder="Comments *"></textarea>
+          <div *ngIf="contactAgent.get('comments')!.hasError('required') && contactAgent.get('comments')!.touched" class="error-message">
+            Comments are required.
+          </div>
+        </div>
+
+        <button value="validateInput" type="submit" class="button submit-button" (click)="validateInput()">Contact Now</button>
+      </form>
+    </div>
+  </div>
+</div>
